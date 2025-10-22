@@ -1,98 +1,13 @@
-# AI Travel Planner with Streamlit
+# AI 여행 플래너 with Streamlit
 
-This project is a Streamlit-based web application that uses multiple AI agents to recommend:
-
-- The best months to visit a location (weather-based).
-- Personalized hotel recommendations (via sentence embeddings).
-- A complete day-by-day travel itinerary (via OpenAI GPT-4).
-
----
-
-## How to Run the App
-
-### 1. Clone or Download the Repository
-
-```bash
-git clone https://github.com/PacktPublishing/Modern-AI-Agents.git
-cd your-repo-name
-```
-
-### 2. Create and Activate a Virtual Environment by using requirements.txt attached
-
-```bash
-python3 -m venv venv
-source venv/bin/activate  # On macOS/Linux
-venv\Scripts\activate     # On Windows
-```
-
-### 3. Install the Requirements
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Set up Streamlit Secrets
-
-Create a `.streamlit/secrets.toml` file and insert your OpenAI API key:
-Example of the content:
-
-```toml
-[general]
-openai_api_key = "xxx_yyy_zzz..."
-```
-
-> 💡 Make sure this file is in the root of your project inside the `.streamlit` folder.
+이 프로젝트는 여러 AI 에이전트를 활용하여 다음을 추천하는 Streamlit 기반 웹 애플리케이션입니다:
+- 방문하기 좋은 최적의 달 (날씨 기반)
+- 개인화된 호텔 추천 (문장 임베딩 활용)
+- 일자별 완전한 여행 일정 (OpenAI GPT-4o 활용)
 
 ---
 
-### 5. Run the App
+## 앱 실행 방법
 
-```bash
-streamlit run Multi_Model–Travel_Planning_System_streamlit_v_0_2.py
-```
-
-Then open the app at:
-
-- http://localhost:8501
-
----
-
-## ⚠️ Known Warnings & Fixes
-
-### Tokenizers Parallelism Warning
-
-Add this line at the top of your script to prevent HuggingFace fork-related deadlocks:
-
-```python
-import os
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
-```
-
-### Torch Custom Class RuntimeError
-
-You might see:
-
-```
-RuntimeError: Tried to instantiate class '__path__._path'...
-```
-
-This is a harmless warning caused by Streamlit's file watcher trying to inspect PyTorch internals. It can be ignored.
-
----
-
-## 🛠 Requirements
-
-Key Python packages used:
-
-- `streamlit`
-- `openai`
-- `sentence-transformers`
-- `scikit-learn`
-- `pydeck`
-- `pandas`, `numpy`
-
----
-
-## 📄 License
-
-MIT License
+구글 Colab에서 ch10.ipynb 파일로 실습을 진행하시기 바랍니다.
+실습을 진행하면 내부적으로 ch10.py를 호출할 것입니다.
