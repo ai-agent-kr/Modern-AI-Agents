@@ -55,15 +55,18 @@ class ItineraryPlannerAgent:
     def create_itinerary(self, destination, best_month, hotel, duration):
         client = openai.OpenAI(api_key=self.api_key)
 
-        prompt = f"""
-        Create a {duration}-day travel itinerary for {destination} in the best month: {best_month}.
-        Recommended Hotel: {hotel['name']}.
-        """
+        prompt = f"""다음 정보를 바탕으로 {duration}일간의 상세한 여행 일정을 작성해주세요:
+
+목적지: {destination}
+최적 방문 시기: {best_month}월
+추천 호텔: {hotel['name']}
+
+각 날짜별로 구체적인 일정을 포함하여 작성해주세요."""
 
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[
-                {"role": "system", "content": "You are an expert travel planner."},
+                {"role": "system", "content": "당신은 전문 여행 플래너입니다."},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=300
